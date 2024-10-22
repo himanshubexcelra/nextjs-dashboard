@@ -85,18 +85,19 @@ export async function signup(
     }
 
     // Set the session cookie
-    try {
-      cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
-    } catch (cookieError) {
-      console.error("Cookie setting error:", cookieError);
-      return { error: "Failed to set session cookie" };
+    // try {
+    //   cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+    // } catch (cookieError) {
+    //   console.error("Cookie setting error:", cookieError);
+    //   return { error: "Failed to set session cookie" };
+    // }
+    return {
+      message: "User created successfully"
     }
-
-    return redirect("/login");
   } catch (error) {
     console.error("Unexpected error during signup:", error);
     return {
-      error: "Something went wrong during signup",
+      error: "",
     };
   }
 }
